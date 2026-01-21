@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#2196F3">
+    <meta name="description" content="Basit Click Sayar Uygulaması">
+    <title>Click Sayar</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%232196F3' width='192' height='192'/><text x='50%' y='50%' font-size='120' fill='white' text-anchor='middle' dy='.3em'>+</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%232196F3' width='192' height='192'/><text x='50%' y='50%' font-size='120' fill='white' text-anchor='middle' dy='.3em'>+</text></svg>">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 Click Sayar</h1>
+            <p class="subtitle">Farklı aktiviteleri izle</p>
+        </div>
+
+        <div class="add-counter-section">
+            <input type="text" id="counterInput" placeholder="Sayaç adı girin..." class="counter-input">
+            <button id="addCounterBtn" class="add-button">+ Ekle</button>
+        </div>
+
+        <div id="countersContainer" class="counters-container">
+            <!-- Sayaçlar burada dinamik olarak eklenecek -->
+        </div>
+
+        <div class="total-section" id="totalSection" style="display: none;">
+            <div class="stat-item">
+                <span class="stat-label">Toplam Tıklamalar:</span>
+                <span class="stat-value" id="totalClicks">0</span>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Code by Tech Gelişim</p>
+        </div>
+    </div>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js')
+                .then(reg => console.log('Service Worker kaydedildi'))
+                .catch(err => console.log('Service Worker kaydı başarısız:', err));
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
